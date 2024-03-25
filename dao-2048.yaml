@@ -1,0 +1,12 @@
+# repositories:
+#   - name: dao-2048
+#     url: http://daocloud.github.io/dao-2048
+
+releases:
+  - name: dao-2048
+    namespace: dao-2048
+    # chart: dao-2048/dao-2048
+    chart: charts/dao-2048
+    version: 1.4.1
+    values:
+      - values/dao-2048.yaml

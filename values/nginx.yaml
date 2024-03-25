@@ -1,0 +1,11 @@
+service:
+  type: NodePort
+
+ingress:
+  enabled: true
+  hostname: nginx.supaman.home
+  ingressClassName: nginx
+  annotations:
+      nginx.ingress.kubernetes.io/rewrite-target: /
+      nginx.ingress.kubernetes.io/ssl-redirect: "false"
+  path: /

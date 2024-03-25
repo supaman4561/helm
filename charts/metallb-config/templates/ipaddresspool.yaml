@@ -1,0 +1,11 @@
+apiVersion: metallb.io/v1beta1
+kind: IPAddressPool
+metadata:
+  name: {{ include "metallb-config.fullname" . }}-ip-address-pool
+  namespace: {{ .Release.Namespace }}
+spec:
+  addresses:
+  {{- with .Values.spec.addresses }}
+  {{- toYaml . | nindent 2 }}
+  {{- end }}
+  autoAssign: {{ .Values.spec.autoAssign }}

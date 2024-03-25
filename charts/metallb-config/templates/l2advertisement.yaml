@@ -1,0 +1,8 @@
+apiVersion: metallb.io/v1beta1
+kind: L2Advertisement
+metadata:
+  name: {{ include "metallb-config.fullname" . }}-l2-advertisement
+  namespace: {{ .Release.Namespace }}
+spec:
+  ipAddressPools:
+    - {{ include "metallb-config.fullname" . }}-ip-address-pool

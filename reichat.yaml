@@ -1,0 +1,6 @@
+releases:
+  - name: reichat
+    namespace: reichat
+    chart: charts/reichat
+    values:
+      - values/reichat.yaml
