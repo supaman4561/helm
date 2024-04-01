@@ -5,9 +5,9 @@ releases:
   - name: metallb
     namespace: metallb-system
     chart: metallb/metallb
-    version: 0.14.3
+    version: 0.14.4
     # values: values/metallb.yaml
- 
+
   - name: metallb-config
     namespace: metallb-system
     chart: charts/metallb-config
