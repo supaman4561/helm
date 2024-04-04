@@ -1,0 +1,17 @@
+repositories:
+  - name: metallb
+    url: https://metallb.github.io/metallb
+releases:
+  - name: metallb
+    namespace: metallb-system
+    chart: metallb/metallb
+    version: 0.14.4
+    # values: values/metallb.yaml
+
+  - name: metallb-config
+    namespace: metallb-system
+    chart: charts/metallb-config
+    secrets:
+      - secrets/metallb-config.yaml
+    values:
+      - values/metallb-config.yaml

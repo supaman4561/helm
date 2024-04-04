@@ -1,0 +1,8 @@
+ingress:
+  enabled: true
+  className: cloudflare-tunnel
+  hosts:
+    - host: 2048.supaperman.net
+      paths:
+        - path: /
+          pathType: Prefix

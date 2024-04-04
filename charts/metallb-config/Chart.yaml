@@ -1,0 +1,5 @@
+apiVersion: v2
+name: metallb-config
+description: config chart for metallb
+type: application
+version: 0.1.0
