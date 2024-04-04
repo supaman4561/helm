@@ -1,0 +1,16 @@
+repositories:
+  - name: cnpg
+    url: https://cloudnative-pg.io/charts/
+
+releases:
+  - name: cnpg
+    namespace: cnpg-system
+    chart: cnpg/cloudnative-pg
+    version: 0.20.2
+  #
+  # - name: database
+  #   namespace: misskey
+  #   chart: cnpg/cluster
+  #   version: 0.0.6
+  #   values:
+  #     - values/cnpg-cluster.yaml
