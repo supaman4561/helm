@@ -1,7 +1,7 @@
 cluster:
   instances: 2
   storage:
-    storageClass: "nfs-client"
+    storageClass: nfs-client
   enableSuperuserAccess: true
   env:
     - name: POSTGRES_PASSWORD
@@ -16,9 +16,9 @@ cluster:
 #
 #        See PostgreSQL documentation about "trust":
 #        https://www.postgresql.org/docs/current/auth-trust.html
-  superuserSecret: misskey-cluster-superuser
-  initdb:
-    database: misskey
-    owner: misskey
-    secret:
-      name: misskey-cluster-app-user
+  # superuserSecret: misskey-cluster-superuser
+  # initdb:
+  #   database: misskey
+  #   owner: misskey
+  #   secret:
+  #     name: misskey-cluster-app-user
