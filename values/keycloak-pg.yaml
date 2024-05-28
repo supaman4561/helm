@@ -1,0 +1,8 @@
+cluster:
+  instance: 1
+  storage:
+    size: 10Gi
+    storageClass: nfs-client
+
+backups:
+  enabled: false
