@@ -7,6 +7,8 @@ releases:
     namespace: cnpg-system
     chart: cnpg/cloudnative-pg
     version: 0.20.2
+    values:
+      - values/cnpg-system.yaml
   #
   # - name: database
   #   namespace: misskey
