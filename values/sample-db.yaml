@@ -9,3 +9,7 @@ cluster:
 
 backups:
   enabled: false
+
+pooler:
+  enabled: true
+  instances: 1

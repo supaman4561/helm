@@ -1,0 +1,55 @@
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: selfsigned-issuer
+spec:
+  selfSigned: {}
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: selfsigned-ca
+  namespace: sample-cnpg
+spec:
+  isCA: true
+  commonName: selfsigned-ca
+  duration: 438000h
+  secretName: selfsigned-ca
+  privateKey:
+    algorithm: RSA
+    size: 2048
+  issuerRef:
+    name: selfsigned-issuer
+    kind: ClusterIssuer
+    group: cert-manager.io
+---
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: ca-issuer
+  namespace: sample-cnpg
+spec:
+  ca:
+    secretName: selfsigned-ca
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: sample-pg
+  namespace: sample-cnpg
+spec:
+  commonName: sample-pg-cn
+  duration: 8760h
+  dnsNames:
+  - database-cluster-r.sample-cnpg.svc.cluster.local
+  - database-cluster-ro.sample-cnpg.svc.cluster.local
+  - database-cluster-rw.sample-cnpg.svc.cluster.local
+  - database-cluster-pooler-rw.sample-cnpg.svc.cluster.local
+  secretName: sample-db-certificate
+  issuerRef:
+    name: ca-issuer
+    kind: Issuer
+    group: cert-manager.io
+  privateKey:
+    algorithm: RSA
+    size: 2048
