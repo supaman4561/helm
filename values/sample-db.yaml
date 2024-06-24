@@ -3,6 +3,9 @@ cluster:
   storage:
     size: 10Gi
     storageClass: nfs-client
+  certificates: 
+    serverCASecret: sample-db-certificate
+    serverTLSSecret: sample-db-certificate
 
 backups:
   enabled: false
