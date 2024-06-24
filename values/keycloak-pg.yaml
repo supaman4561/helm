@@ -1,5 +1,5 @@
 cluster:
-  instance: 1
+  instances: 1
   storage:
     size: 10Gi
     storageClass: nfs-client
