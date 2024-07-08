@@ -1,0 +1,6 @@
+releases:
+  - name: vaultwarden
+    namespace: vaultwarden
+    chart: charts/vaultwarden
+    values:
+      - values/vaultwarden.yaml
