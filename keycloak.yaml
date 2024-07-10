@@ -1,24 +1,16 @@
 repositories:
-  - name: codecentric
-    url: https://codecentric.github.io/helm-charts
+  - name: bitnami
+    url: https://charts.bitnami.com/bitnami
   - name: cnpg
     url: https://cloudnative-pg.io/charts/
-
+---
 releases:
   - name: keycloak
     namespace: keycloak
-    chart: codecentric/keycloak
-    version: 18.4.4
+    chart: bitnami/keycloak
+    version: 21.6.0
     values:
       - values/keycloak.yaml
-
-  # - name: cnpg
-  #   namespace: keycloak
-  #   chart: cnpg/cloudnative-pg
-  #   version: 0.20.2
-  #   values:
-  #     - values/keycloak.yaml
-
   - name: database
     namespace: keycloak
     chart: cnpg/cluster
