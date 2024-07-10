@@ -1,13 +1,11 @@
 repositories:
   - name: cnpg
     url: https://cloudnative-pg.io/charts/
-
 releases:
   - name: cnpg
     namespace: cnpg-system
     chart: cnpg/cloudnative-pg
     version: 0.20.2
-
   - name: database
     namespace: sample-cnpg
     chart: cnpg/cluster
