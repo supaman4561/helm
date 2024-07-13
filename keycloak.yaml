@@ -3,7 +3,7 @@ repositories:
     url: https://charts.bitnami.com/bitnami
   - name: cnpg
     url: https://cloudnative-pg.io/charts/
----
+
 releases:
   - name: keycloak
     namespace: keycloak
@@ -11,6 +11,9 @@ releases:
     version: 21.6.0
     values:
       - values/keycloak.yaml
+    secrets:
+      - secrets/keycloak.yaml
+
   - name: database
     namespace: keycloak
     chart: cnpg/cluster
