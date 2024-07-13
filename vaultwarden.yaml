@@ -1,0 +1,20 @@
+repositories:
+  - name: cnpg
+    url: https://cloudnative-pg.io/charts/
+
+
+releases:
+  - name: vaultwarden
+    namespace: vaultwarden
+    chart: charts/vaultwarden
+    values:
+      - values/vaultwarden.yaml
+    secrets:
+      - secrets/vaultwarden.yaml
+
+  - name: database
+    namespace: vaultwarden
+    chart: cnpg/cluster
+    version: 0.0.9
+    values:
+      - values/vaultwarden.yaml
