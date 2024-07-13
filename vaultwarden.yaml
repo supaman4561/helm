@@ -9,6 +9,8 @@ releases:
     chart: charts/vaultwarden
     values:
       - values/vaultwarden.yaml
+    secrets:
+      - secrets/vaultwarden.yaml
 
   - name: database
     namespace: vaultwarden

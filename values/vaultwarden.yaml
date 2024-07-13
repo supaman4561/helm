@@ -11,16 +11,6 @@ ingress:
           pathType: Prefix
   tls: []
 
-config:
-  DOMAIN: https://vaultwarden.supaperman.net
-  DATABASE_URL: postgresql://vaultwarden:3VLoGRftZq2bA94j8TTQ7Ybt5RoKWpDF04opGuznngdrzCSSDEUScuKJHZNOF5YH@database-cluster-rw.vaultwarden:5432/vaultwarden
-  SSO_ENABLED: true
-  SSO_ONLY: true
-  SSO_FRONTEND: override
-  SSO_CLIENT_ID: https://vaultwarden.supaperman.net
-  SSO_CLIENT_SECRET: 5Vmf4ibSgd02KR8fnFyo6cUgR8j1DbZ0
-  SSO_AUTHORITY: https://keycloak.supaperman.net/realms/ktp
-
 cluster:
   instances: 1
   storage:
