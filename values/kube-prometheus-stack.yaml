@@ -1,49 +1,60 @@
 # server:
 #   persistentVolume:
 #     enabled: false
+
 alertmanager:
   ingress:
     enabled: true
-    ingressClassName: nginx
-    annotations:
-      nginx.ingress.kubernetes.io/rewrite-target: /
-      nginx.ingress.kubernetes.io/ssl-redirect: "false"
-    hostDomain: supaman.home
+    ingressClassName: cloudflare-tunnel
+    hostDomain: supaperman.net
     hosts:
-      - alertmanager.supaman.home
+      - alertmanager.supaperman.net
     paths:
       - /
+    pathType: Prefix
   service:
-    type: NodePort
+    type: ClusterIP
 
 grafana:
   ingress:
     enabled: true
-    ingressClassName: nginx
-    annotations:
-      nginx.ingress.kubernetes.io/rewrite-target: /
-      nginx.ingress.kubernetes.io/ssl-redirect: "false"
-    hostDomain: supaman.home
+    ingressClassName: cloudflare-tunnel
+    hostDomain: supaperman.net
     hosts:
-      - grafana.supaman.home
+      - grafana.supaperman.net
     paths:
       - /
+    pathType: Prefix
+
   service:
-    type: NodePort
+    type: ClusterIP
+
+  grafana.ini:
+    server:
+      root_url: https://grafana.supaperman.net
+    auth.generic_oauth:
+      enabled: true
+      name: Keyclaok-OAuth
+      allow_sign_up: true
+      client_id: https://grafana.supaperman.net
+      scopes: openid email profile offline_access roles
+      email_attribute_path: email
+      login_attribute_path: username
+      name_attribute_path: full_name
+      auth_url: https://keycloak.supaperman.net/realms/ktp/protocol/openid-connect/auth
+      token_url: https://keycloak.supaperman.net/realms/ktp/protocol/openid-connect/token
+      api_url: https://keycloak.supaperman.net/realms/ktp/protocol/openid-connect/userinfo
+      role_attribute_path: contains(roles[*], 'admin') && 'Admin' || contains(roles[*], 'editor') && 'Editor' || 'Viewer'
 
 prometheus:
   ingress:
     enabled: true
-    ingressClassName: nginx
-    annotations:
-      nginx.ingress.kubernetes.io/rewrite-target: /
-      nginx.ingress.kubernetes.io/ssl-redirect: "false"
-    hostDomain: supaman.home
+    ingressClassName: cloudflare-tunnel
+    hostDomain: supaperman.net
     hosts:
-      - prometheus.supaman.home
+      - prometheus.supaperman.net
     paths:
       - /
+    pathType: Prefix
   service:
-    type: NodePort
-
-
+    type: ClusterIP
