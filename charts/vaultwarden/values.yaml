@@ -5,10 +5,10 @@
 replicaCount: 1
 
 image:
-  repository: vaultwarden/server
+  repository: timshel/vaultwarden
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "1.30.5"
+  tag: "1.31.0-1-alpine"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -105,3 +105,5 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+config: {}
