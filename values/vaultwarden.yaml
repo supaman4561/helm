@@ -21,3 +21,6 @@ cluster:
 
 backups:
   enabled: false
+
+config:
+  DOMAIN: https://vaultwarden.supaperman.net
