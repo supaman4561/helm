@@ -13,10 +13,12 @@ spec:
       {{- include "vaultwarden.selectorLabels" . | nindent 6 }}
   template:
     metadata:
-      {{- with .Values.podAnnotations }}
       annotations:
+        checksum/configmap: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
+        checksum/secret: {{ include (print $.Template.BasePath "/secret.yaml") . | sha256sum }}
+        {{- with .Values.podAnnotations }}
         {{- toYaml . | nindent 8 }}
-      {{- end }}
+        {{- end }}
       labels:
         {{- include "vaultwarden.labels" . | nindent 8 }}
         {{- with .Values.podLabels }}
@@ -36,8 +38,14 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           envFrom:
+            {{- if .Values.envConfig }}
             - configMapRef:
-                name: {{ include "vaultwarden.fullname" . }}-config
+                name: {{ include "vaultwarden.fullname" . }}
+            {{- end }}
+            {{- if .Values.envSecret }}
+            - secretRef:
+                name: {{ include "vaultwarden.fullname" . }}
+            {{- end }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http

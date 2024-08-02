@@ -1,3 +1,9 @@
+image:
+  repository: timshel/vaultwarden
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "1.31.0-1-alpine"
+
 ingress:
   enabled: true
   className: cloudflare-tunnel
@@ -22,5 +28,8 @@ cluster:
 backups:
   enabled: false
 
-config:
+envConfig:
   DOMAIN: https://vaultwarden.supaperman.net
+  SSO_ENABLED: true
+  SSO_FRONTEND: override
+  SSO_ONLY: true

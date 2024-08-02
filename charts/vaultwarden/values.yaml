@@ -106,6 +106,5 @@ tolerations: []
 
 affinity: {}
 
-config: {}
-
-secret: {}
+envConfig: {}
+envSecret: {}
