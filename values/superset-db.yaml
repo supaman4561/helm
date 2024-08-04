@@ -1,0 +1,10 @@
+cluster:
+  instances: 1
+  storage:
+    size: 10Gi
+    storageClass: nfs-client
+  initdb:
+    database: superset
+
+backups:
+  enabled: false

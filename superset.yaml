@@ -1,0 +1,22 @@
+repositories:
+  - name: superset
+    url: http://apache.github.io/superset/
+  - name: cnpg
+    url: https://cloudnative-pg.io/charts/
+
+
+releases:
+  - name: superset
+    namespace: superset
+    chart: superset/superset
+    values:
+      - values/superset.yaml
+    secrets:
+      - secrets/superset.yaml
+
+  - name: database
+    namespace: superset
+    chart: cnpg/cluster
+    version: 0.0.9
+    values:
+      - values/superset-db.yaml
