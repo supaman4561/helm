@@ -44,6 +44,7 @@ grafana:
       auth_url: https://keycloak.supaperman.net/realms/ktp/protocol/openid-connect/auth
       token_url: https://keycloak.supaperman.net/realms/ktp/protocol/openid-connect/token
       api_url: https://keycloak.supaperman.net/realms/ktp/protocol/openid-connect/userinfo
+      role_attribute_path: contains(realm_access.roles[], 'grafana_admin') && 'Admin' || contains(realm_access.roles[], 'grafana_editor') && 'Editor' || 'Viewer'
     users:
       auto_assign_org: true
       auto_assign_org_role: Editor
