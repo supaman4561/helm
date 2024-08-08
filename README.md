@@ -8,11 +8,10 @@ helmfileを置くところ
 * 内部向けのサービスにはローカルDNSを構築しているよ
   - これはいずれ認証サーバを立てられてユーザ管理できるようになったら外部に公開するよ
 * 適当に面白そうなサービスを載せてたりするよ
-  - 2048
-  - misskey
-* secretファイルはsops暗号化しているよ
+  - [2048.supaperman.net](https://2048.supaperman.net)
+  - misskey (一時停止中)
 
-## Usage
+## Build
 
 ```
 $ helmfile -f {app-name}.yaml template
